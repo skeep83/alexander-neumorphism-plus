@@ -1,0 +1,1260 @@
+# ==============================================================================
+# Alexander Neumorphism — full Home Assistant + UIX theme
+# Based on skeep83/neumorphism-ui-bootstrap and Neumorphism Pro (MIT)
+# ==============================================================================
+#
+# Design Philosophy:
+#   - Every HA CSS variable defined for seamless native experience
+#   - Neumorphic (soft-UI) shadows: convex (raised) & concave (inset)
+#   - Themesberg-inspired base palette: #e6e7ee light / #2a2c30 graphite dark
+#   - Typography: Nunito Sans (Google Fonts)
+#   - 0.55rem border radius (Themesberg reference)
+#   - Card-mod ready with custom neumorphic variables
+#
+# ==============================================================================
+
+Alexander Neumorphism:
+  modes:
+    # =========================================================================
+    # LIGHT MODE
+    # =========================================================================
+    light:
+      # -----------------------------------------------------------------------
+      # TYPOGRAPHY
+      # -----------------------------------------------------------------------
+      primary-font-family: "'Nunito Sans Local', 'Nunito Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
+      paper-font-common-base_-_font-family: "'Nunito Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+
+      # -----------------------------------------------------------------------
+      # PRIMARY & ACCENT
+      # -----------------------------------------------------------------------
+      primary-color: "#4A6FA5"
+      dark-primary-color: "#3A5A8A"
+      darker-primary-color: "#2D4770"
+      light-primary-color: "#7A9FD5"
+      accent-color: "#FF9800"
+      divider-color: "rgba(49, 52, 75, 0.12)"
+      outline-color: "rgba(49, 52, 75, 0.12)"
+      outline-hover-color: "rgba(49, 52, 75, 0.24)"
+      shadow-color: "rgba(49, 52, 75, 0.16)"
+
+      # -----------------------------------------------------------------------
+      # TEXT COLORS
+      # -----------------------------------------------------------------------
+      primary-text-color: "#31344b"
+      secondary-text-color: "#44476a"
+      text-primary-color: "#ffffff"
+      text-light-primary-color: "#31344b"
+      disabled-text-color: "#7c8aa3"
+
+      # -----------------------------------------------------------------------
+      # RGB VALUES (for rgba() usage throughout HA)
+      # -----------------------------------------------------------------------
+      rgb-primary-color: "74, 111, 165"
+      rgb-accent-color: "255, 152, 0"
+      rgb-primary-text-color: "49, 52, 75"
+      rgb-secondary-text-color: "68, 71, 106"
+      rgb-text-primary-color: "255, 255, 255"
+      rgb-card-background-color: "230, 231, 238"
+      rgb-warning-color: "240, 180, 0"
+      rgb-error-color: "169, 30, 44"
+      rgb-success-color: "24, 99, 75"
+      rgb-info-color: "74, 111, 165"
+
+      # -----------------------------------------------------------------------
+      # BACKGROUNDS
+      # -----------------------------------------------------------------------
+      primary-background-color: "#e6e7ee"
+      secondary-background-color: "#dfe0e7"
+      card-background-color: "#e6e7ee"
+      clear-background-color: "#e6e7ee"
+
+      # -----------------------------------------------------------------------
+      # STATUS COLORS
+      # -----------------------------------------------------------------------
+      error-color: "#A91E2C"
+      warning-color: "#F0B400"
+      success-color: "#18634B"
+      info-color: "#4A6FA5"
+
+      # -----------------------------------------------------------------------
+      # SCROLLBAR
+      # -----------------------------------------------------------------------
+      scrollbar-thumb-color: "rgba(49, 52, 75, 0.2)"
+
+      # -----------------------------------------------------------------------
+      # STATE ICONS
+      # -----------------------------------------------------------------------
+      state-icon-color: "#44476a"
+      state-icon-active-color: "#4A6FA5"
+      state-icon-unavailable-color: "#7c8aa3"
+      state-icon-error-color: "var(--error-color)"
+
+      # State active/inactive base
+      state-active-color: "var(--amber-color)"
+      state-inactive-color: "#6b6f86"
+      state-unavailable-color: "var(--disabled-text-color)"
+
+      # Legacy on/off
+      state-on-color: "#18634B"
+      state-off-color: "#7c8aa3"
+
+      # -----------------------------------------------------------------------
+      # FULL COLOR PALETTE (Material — used by graphs, calendars, maps, badges)
+      # -----------------------------------------------------------------------
+      disabled-color: "#bdbdbd"
+      red-color: "#f44336"
+      pink-color: "#e91e63"
+      purple-color: "#926bc7"
+      deep-purple-color: "#6e41ab"
+      indigo-color: "#3f51b5"
+      blue-color: "#2196f3"
+      light-blue-color: "#03a9f4"
+      cyan-color: "#00bcd4"
+      teal-color: "#009688"
+      green-color: "#4caf50"
+      light-green-color: "#8bc34a"
+      lime-color: "#cddc39"
+      yellow-color: "#ffeb3b"
+      amber-color: "#ffc107"
+      orange-color: "#ff9800"
+      deep-orange-color: "#ff6f22"
+      brown-color: "#795548"
+      light-grey-color: "#bdbdbd"
+      grey-color: "#9e9e9e"
+      dark-grey-color: "#606060"
+      blue-grey-color: "#607d8b"
+      black-color: "#000000"
+      white-color: "#ffffff"
+
+      # -----------------------------------------------------------------------
+      # GRAPH / CALENDAR COLORS (color-1 through color-54)
+      # -----------------------------------------------------------------------
+      color-1: "#4269d0"
+      color-2: "#f4bd4a"
+      color-3: "#ff725c"
+      color-4: "#6cc5b0"
+      color-5: "#a463f2"
+      color-6: "#ff8ab7"
+      color-7: "#9c6b4e"
+      color-8: "#97bbf5"
+      color-9: "#01ab63"
+      color-10: "#094bad"
+      color-11: "#c99000"
+      color-12: "#d84f3e"
+      color-13: "#49a28f"
+      color-14: "#048732"
+      color-15: "#d96895"
+      color-16: "#8043ce"
+      color-17: "#7599d1"
+      color-18: "#7a4c31"
+      color-19: "#6989f4"
+      color-20: "#ffd444"
+      color-21: "#ff957c"
+      color-22: "#8fe9d3"
+      color-23: "#62cc71"
+      color-24: "#ffadda"
+      color-25: "#c884ff"
+      color-26: "#badeff"
+      color-27: "#bf8b6d"
+      color-28: "#927acc"
+      color-29: "#97ee3f"
+      color-30: "#bf3947"
+      color-31: "#9f5b00"
+      color-32: "#f48758"
+      color-33: "#8caed6"
+      color-34: "#f2b94f"
+      color-35: "#eff26e"
+      color-36: "#e43872"
+      color-37: "#d9b100"
+      color-38: "#9d7a00"
+      color-39: "#698cff"
+      color-40: "#00d27e"
+      color-41: "#d06800"
+      color-42: "#009f82"
+      color-43: "#c49200"
+      color-44: "#cbe8ff"
+      color-45: "#fecddf"
+      color-46: "#c27eb6"
+      color-47: "#8cd2ce"
+      color-48: "#c4b8d9"
+      color-49: "#f883b0"
+      color-50: "#a49100"
+      color-51: "#f48800"
+      color-52: "#27d0df"
+      color-53: "#a04a9b"
+      color-54: "#4269d0"
+
+      # -----------------------------------------------------------------------
+      # ENERGY DASHBOARD COLORS
+      # -----------------------------------------------------------------------
+      energy-grid-consumption-color: "#488fc2"
+      energy-grid-return-color: "#8353d1"
+      energy-solar-color: "#ff9800"
+      energy-non-fossil-color: "#0f9d58"
+      energy-battery-out-color: "#4db6ac"
+      energy-battery-in-color: "#f06292"
+      energy-gas-color: "#8e021b"
+      energy-water-color: "#00bcd4"
+
+      # -----------------------------------------------------------------------
+      # STATE DOMAIN COLORS
+      # -----------------------------------------------------------------------
+      # Alarm Control Panel
+      state-alarm_control_panel-armed_away-color: "var(--green-color)"
+      state-alarm_control_panel-armed_custom_bypass-color: "var(--green-color)"
+      state-alarm_control_panel-armed_home-color: "var(--green-color)"
+      state-alarm_control_panel-armed_night-color: "var(--green-color)"
+      state-alarm_control_panel-armed_vacation-color: "var(--green-color)"
+      state-alarm_control_panel-arming-color: "var(--orange-color)"
+      state-alarm_control_panel-disarming-color: "var(--orange-color)"
+      state-alarm_control_panel-pending-color: "var(--orange-color)"
+      state-alarm_control_panel-triggered-color: "var(--red-color)"
+
+      # Alert
+      state-alert-off-color: "var(--orange-color)"
+      state-alert-on-color: "var(--red-color)"
+
+      # Binary Sensor
+      state-binary_sensor-active-color: "var(--amber-color)"
+      state-binary_sensor-battery-on-color: "var(--red-color)"
+      state-binary_sensor-carbon_monoxide-on-color: "var(--red-color)"
+      state-binary_sensor-gas-on-color: "var(--red-color)"
+      state-binary_sensor-heat-on-color: "var(--red-color)"
+      state-binary_sensor-lock-on-color: "var(--red-color)"
+      state-binary_sensor-moisture-on-color: "var(--red-color)"
+      state-binary_sensor-problem-on-color: "var(--red-color)"
+      state-binary_sensor-safety-on-color: "var(--red-color)"
+      state-binary_sensor-smoke-on-color: "var(--red-color)"
+      state-binary_sensor-sound-on-color: "var(--red-color)"
+      state-binary_sensor-tamper-on-color: "var(--red-color)"
+
+      # Climate
+      state-climate-auto-color: "var(--green-color)"
+      state-climate-cool-color: "var(--blue-color)"
+      state-climate-dry-color: "var(--orange-color)"
+      state-climate-fan_only-color: "var(--cyan-color)"
+      state-climate-heat-color: "var(--deep-orange-color)"
+      state-climate-heat-cool-color: "var(--amber-color)"
+
+      # Cover, Device Tracker, Fan, Humidifier
+      state-cover-active-color: "var(--purple-color)"
+      state-device_tracker-active-color: "var(--blue-color)"
+      state-device_tracker-home-color: "var(--green-color)"
+      state-fan-active-color: "var(--cyan-color)"
+      state-humidifier-on-color: "var(--blue-color)"
+
+      # Lawn Mower
+      state-lawn_mower-error-color: "var(--red-color)"
+      state-lawn_mower-mowing-color: "var(--teal-color)"
+
+      # Light
+      state-light-active-color: "var(--amber-color)"
+
+      # Lock
+      state-lock-jammed-color: "var(--red-color)"
+      state-lock-locked-color: "var(--green-color)"
+      state-lock-locking-color: "var(--orange-color)"
+      state-lock-unlocked-color: "var(--red-color)"
+      state-lock-unlocking-color: "var(--orange-color)"
+      state-lock-open-color: "var(--red-color)"
+      state-lock-opening-color: "var(--orange-color)"
+
+      # Media Player, Person, Plant, Siren
+      state-media_player-active-color: "var(--light-blue-color)"
+      state-person-active-color: "var(--blue-color)"
+      state-person-home-color: "var(--green-color)"
+      state-plant-active-color: "var(--red-color)"
+      state-siren-active-color: "var(--red-color)"
+
+      # Sun
+      state-sun-above_horizon-color: "var(--amber-color)"
+      state-sun-below_horizon-color: "var(--indigo-color)"
+
+      # Switch, Update, Vacuum, Valve
+      state-switch-active-color: "var(--amber-color)"
+      state-update-active-color: "var(--orange-color)"
+      state-vacuum-active-color: "var(--teal-color)"
+      state-valve-active-color: "var(--blue-color)"
+
+      # Sensor Battery
+      state-sensor-battery-high-color: "var(--green-color)"
+      state-sensor-battery-low-color: "var(--red-color)"
+      state-sensor-battery-medium-color: "var(--orange-color)"
+
+      # Water Heater
+      state-water_heater-eco-color: "var(--green-color)"
+      state-water_heater-electric-color: "var(--orange-color)"
+      state-water_heater-gas-color: "var(--orange-color)"
+      state-water_heater-heat_pump-color: "var(--orange-color)"
+      state-water_heater-high_demand-color: "var(--deep-orange-color)"
+      state-water_heater-performance-color: "var(--deep-orange-color)"
+
+      # Weather
+      state-weather-clear_night-color: "var(--deep-purple-color)"
+      state-weather-cloudy-color: "var(--light-grey-color)"
+      state-weather-exceptional-color: "var(--red-color)"
+      state-weather-fog-color: "var(--grey-color)"
+      state-weather-hail-color: "var(--cyan-color)"
+      state-weather-lightning_rainy-color: "var(--lime-color)"
+      state-weather-lightning-color: "var(--yellow-color)"
+      state-weather-partlycloudy-color: "var(--blue-grey-color)"
+      state-weather-pouring-color: "var(--indigo-color)"
+      state-weather-rainy-color: "var(--blue-color)"
+      state-weather-snowy_rainy-color: "var(--light-blue-color)"
+      state-weather-snowy-color: "#c0e0ff"
+      state-weather-sunny-color: "var(--amber-color)"
+      state-weather-windy_variant-color: "var(--green-color)"
+      state-weather-windy-color: "var(--green-color)"
+
+      # -----------------------------------------------------------------------
+      # HISTORY COLORS
+      # -----------------------------------------------------------------------
+      history-unavailable-color: "transparent"
+      history-unknown-color: "var(--dark-grey-color)"
+
+      # -----------------------------------------------------------------------
+      # HEADER
+      # -----------------------------------------------------------------------
+      app-header-background-color: "#e6e7ee"
+      app-header-text-color: "#31344b"
+      app-header-border-bottom: "none"
+      app-header-edit-background-color: "#dfe0e7"
+      app-header-edit-text-color: "#31344b"
+      app-theme-color: "#e6e7ee"
+
+      # -----------------------------------------------------------------------
+      # SIDEBAR
+      # -----------------------------------------------------------------------
+      sidebar-background-color: "#e6e7ee"
+      sidebar-text-color: "#31344b"
+      sidebar-icon-color: "rgba(49, 52, 75, 0.6)"
+      sidebar-selected-background-color: "#dfe0e7"
+      sidebar-selected-text-color: "var(--primary-color)"
+      sidebar-selected-icon-color: "var(--primary-color)"
+
+      # -----------------------------------------------------------------------
+      # CARDS (Neumorphic Styling)
+      # -----------------------------------------------------------------------
+      ha-card-background: "#e6e7ee"
+      ha-card-border-radius: "14px"
+      ha-card-border-width: "0px"
+      ha-card-border-color: "transparent"
+      ha-card-box-shadow: "8px 8px 18px #b8b9be, -8px -8px 18px #ffffff, inset 1px 1px 0 rgba(255, 255, 255, 0.85), inset -1px -1px 0 rgba(140, 143, 160, 0.22)"
+
+      # -----------------------------------------------------------------------
+      # LABELS & BADGES
+      # -----------------------------------------------------------------------
+      label-badge-background-color: "#e6e7ee"
+      label-badge-text-color: "rgba(49, 52, 75, 0.8)"
+      label-badge-grey: "#9e9e9e"
+      label-badge-red: "var(--error-color)"
+      label-badge-blue: "var(--info-color)"
+      label-badge-green: "var(--success-color)"
+      label-badge-yellow: "var(--warning-color)"
+
+      # -----------------------------------------------------------------------
+      # SWITCHES & TOGGLES
+      # -----------------------------------------------------------------------
+      switch-checked-color: "var(--primary-color)"
+      switch-checked-button-color: "var(--primary-background-color)"
+      switch-checked-track-color: "var(--primary-color)"
+      switch-unchecked-button-color: "var(--primary-background-color)"
+      switch-unchecked-track-color: "#b8b9be"
+      toggle-button-color: "var(--primary-color)"
+      toggle-button-unchecked-color: "#93a5be"
+
+      # -----------------------------------------------------------------------
+      # SLIDERS
+      # -----------------------------------------------------------------------
+      slider-color: "var(--primary-color)"
+      slider-secondary-color: "var(--light-primary-color)"
+      slider-bar-color: "#d1d9e6"
+      slider-track-color: "var(--scrollbar-thumb-color)"
+      paper-slider-knob-color: "var(--primary-color)"
+      paper-slider-active-color: "var(--primary-color)"
+      paper-slider-container-color: "#d1d9e6"
+      paper-slider-disabled-active-color: "#93a5be"
+      paper-slider-disabled-secondary-color: "#d1d9e6"
+
+      # -----------------------------------------------------------------------
+      # INPUT FIELDS (Full coverage)
+      # -----------------------------------------------------------------------
+      input-idle-line-color: "rgba(49, 52, 75, 0.42)"
+      input-hover-line-color: "rgba(49, 52, 75, 0.87)"
+      input-disabled-line-color: "rgba(49, 52, 75, 0.06)"
+      input-outlined-idle-border-color: "rgba(49, 52, 75, 0.38)"
+      input-outlined-hover-border-color: "rgba(49, 52, 75, 0.87)"
+      input-outlined-disabled-border-color: "rgba(49, 52, 75, 0.06)"
+      input-fill-color: "#dfe0e7"
+      input-disabled-fill-color: "#e6e7ee"
+      input-ink-color: "rgba(49, 52, 75, 0.87)"
+      input-label-ink-color: "rgba(49, 52, 75, 0.6)"
+      input-disabled-ink-color: "rgba(49, 52, 75, 0.37)"
+      input-dropdown-icon-color: "rgba(49, 52, 75, 0.54)"
+
+      # -----------------------------------------------------------------------
+      # TABLES
+      # -----------------------------------------------------------------------
+      table-header-background-color: "var(--input-fill-color)"
+      table-row-background-color: "#e6e7ee"
+      table-row-alternative-background-color: "#dfe0e7"
+      data-table-background-color: "#e6e7ee"
+
+      # -----------------------------------------------------------------------
+      # MARKDOWN
+      # -----------------------------------------------------------------------
+      markdown-code-background-color: "#dfe0e7"
+
+      # -----------------------------------------------------------------------
+      # MDC THEME (Material Design Components)
+      # -----------------------------------------------------------------------
+      mdc-theme-primary: "var(--primary-color)"
+      mdc-theme-secondary: "var(--accent-color)"
+      mdc-theme-background: "var(--primary-background-color)"
+      mdc-theme-surface: "var(--card-background-color)"
+      mdc-theme-on-primary: "var(--text-primary-color)"
+      mdc-theme-on-secondary: "var(--text-primary-color)"
+      mdc-theme-on-surface: "var(--primary-text-color)"
+      mdc-theme-text-disabled-on-light: "var(--disabled-text-color)"
+      mdc-theme-text-primary-on-background: "var(--primary-text-color)"
+      mdc-theme-text-secondary-on-background: "var(--secondary-text-color)"
+      mdc-theme-text-hint-on-background: "var(--secondary-text-color)"
+      mdc-theme-text-icon-on-background: "var(--secondary-text-color)"
+      mdc-theme-error: "var(--error-color)"
+
+      # MDC Checkbox & Radio
+      mdc-checkbox-unchecked-color: "rgba(49, 52, 75, 0.54)"
+      mdc-checkbox-disabled-color: "var(--disabled-text-color)"
+      mdc-radio-unchecked-color: "rgba(49, 52, 75, 0.54)"
+      mdc-radio-disabled-color: "var(--disabled-text-color)"
+
+      # MDC Tab
+      mdc-tab-text-label-color-default: "var(--primary-text-color)"
+
+      # MDC Button
+      mdc-button-raised-box-shadow: "3px 3px 6px #b8b9be, -3px -3px 6px #ffffff"
+      mdc-button-disabled-ink-color: "var(--disabled-text-color)"
+      mdc-button-outline-color: "var(--outline-color)"
+
+      # MDC Dialog
+      mdc-dialog-scrim-color: "rgba(49, 52, 75, 0.4)"
+      mdc-dialog-scroll-divider-color: "var(--divider-color)"
+      mdc-dialog-heading-ink-color: "var(--primary-text-color)"
+      mdc-dialog-content-ink-color: "var(--primary-text-color)"
+
+      # MDC Top App Bar
+      mdc-top-app-bar-fixed-box-shadow: "var(--bar-box-shadow)"
+
+      # MDC Text Field (mapped from input vars)
+      mdc-text-field-idle-line-color: "var(--input-idle-line-color)"
+      mdc-text-field-hover-line-color: "var(--input-hover-line-color)"
+      mdc-text-field-disabled-line-color: "var(--input-disabled-line-color)"
+      mdc-text-field-outlined-idle-border-color: "var(--input-outlined-idle-border-color)"
+      mdc-text-field-outlined-hover-border-color: "var(--input-outlined-hover-border-color)"
+      mdc-text-field-outlined-disabled-border-color: "var(--input-outlined-disabled-border-color)"
+      mdc-text-field-fill-color: "var(--input-fill-color)"
+      mdc-text-field-disabled-fill-color: "var(--input-disabled-fill-color)"
+      mdc-text-field-ink-color: "var(--input-ink-color)"
+      mdc-text-field-label-ink-color: "var(--input-label-ink-color)"
+      mdc-text-field-disabled-ink-color: "var(--input-disabled-ink-color)"
+
+      # MDC Select (mapped from input vars)
+      mdc-select-idle-line-color: "var(--input-idle-line-color)"
+      mdc-select-hover-line-color: "var(--input-hover-line-color)"
+      mdc-select-outlined-idle-border-color: "var(--input-outlined-idle-border-color)"
+      mdc-select-outlined-hover-border-color: "var(--input-outlined-hover-border-color)"
+      mdc-select-outlined-disabled-border-color: "var(--input-outlined-disabled-border-color)"
+      mdc-select-fill-color: "var(--input-fill-color)"
+      mdc-select-disabled-fill-color: "var(--input-disabled-fill-color)"
+      mdc-select-ink-color: "var(--input-ink-color)"
+      mdc-select-label-ink-color: "var(--input-label-ink-color)"
+      mdc-select-disabled-ink-color: "var(--input-disabled-ink-color)"
+      mdc-select-dropdown-icon-color: "var(--input-dropdown-icon-color)"
+      mdc-select-disabled-dropdown-icon-color: "var(--input-disabled-ink-color)"
+
+      # HA Assist Chips & Buttons
+      ha-assist-chip-filled-container-color: "rgba(49, 52, 75, 0.15)"
+      ha-assist-chip-active-container-color: "rgba(74, 111, 165, 0.15)"
+      chip-background-color: "rgba(49, 52, 75, 0.15)"
+      chip-text-color: "#31344b"
+      chip-icon-color: "#44476a"
+      chip-box-shadow: "3px 3px 6px #b8b9be, -3px -3px 6px #ffffff"
+
+      # -----------------------------------------------------------------------
+      # DIALOGS & MODALS
+      # -----------------------------------------------------------------------
+      dialog-backdrop-filter: "blur(10px)"
+
+      # -----------------------------------------------------------------------
+      # NOTIFICATIONS & TOASTS
+      # -----------------------------------------------------------------------
+      paper-toast-background-color: "#31344b"
+      paper-toast-color: "#ffffff"
+
+      # -----------------------------------------------------------------------
+      # BAR SHADOW
+      # -----------------------------------------------------------------------
+      bar-box-shadow: "0 2px 12px var(--shadow-color)"
+
+      # -----------------------------------------------------------------------
+      # CODE EDITOR (Full CodeMirror support)
+      # -----------------------------------------------------------------------
+      code-editor-background-color: "#dfe0e7"
+      codemirror-keyword: "#0056B3"
+      codemirror-operator: "#31344b"
+      codemirror-variable: "#A91E2C"
+      codemirror-variable-2: "#44476a"
+      codemirror-variable-3: "#F0B400"
+      codemirror-builtin: "#ff9800"
+      codemirror-atom: "#A91E2C"
+      codemirror-number: "#F0B400"
+      codemirror-def: "#4A6FA5"
+      codemirror-string: "#18634B"
+      codemirror-string-2: "#A91E2C"
+      codemirror-comment: "#93a5be"
+      codemirror-tag: "#A91E2C"
+      codemirror-meta: "#ff9800"
+      codemirror-attribute: "#926bc7"
+      codemirror-property: "#926bc7"
+      codemirror-qualifier: "#F0B400"
+      codemirror-type: "#F0B400"
+
+      # -----------------------------------------------------------------------
+      # PAPER ELEMENTS (Legacy)
+      # -----------------------------------------------------------------------
+      paper-item-icon-color: "#44476a"
+      paper-item-icon-active-color: "var(--primary-color)"
+
+      # -----------------------------------------------------------------------
+      # LAYOUT & SPACING
+      # -----------------------------------------------------------------------
+      masonry-view-card-margin: "8px"
+      grid-card-gap: "16px"
+      stack-card-margin: "8px"
+      horizontal-stack-card-margin: "0 8px"
+      vertical-stack-card-margin: "8px 0"
+
+      # -----------------------------------------------------------------------
+      # NEUMORPHIC CUSTOM VARIABLES (for card-mod)
+      # -----------------------------------------------------------------------
+      neumorphic-base: "#e6e7ee"
+      neumorphic-base-rgb: "230, 231, 238"
+      neumorphic-surface: "#e6e7ee"
+      neumorphic-surface-alt: "#dfe0e7"
+      neumorphic-shadow-light: "#ffffff"
+      neumorphic-shadow-dark: "#b8b9be"
+      # Restrained glass layer: translucent enough to catch the background,
+      # but opaque enough to preserve text contrast in bright rooms.
+      neumorphic-glass-surface: "rgba(242, 244, 250, 0.72)"
+      neumorphic-glass-surface-strong: "rgba(242, 244, 250, 0.82)"
+      neumorphic-glass-border: "transparent"
+      neumorphic-glass-highlight: "rgba(255, 255, 255, 0.72)"
+      neumorphic-card-sheen: "rgba(255, 255, 255, 0.45)"
+      neumorphic-led-off: "#c9cbd3"
+      neumorphic-led-on: "#34d27b"
+      neumorphic-bg-pattern: "radial-gradient(circle at 50% 50%, rgba(150, 154, 176, 0.30) 0 1px, rgba(255, 255, 255, 0.85) 1.4px, transparent 1.6px)"
+      neumorphic-led-warn: "#f5a524"
+      neumorphic-led-alarm: "#ef4444"
+      neumorphic-lcd-bg: "rgba(40, 48, 72, 0.055)"
+      neumorphic-lcd-shadow: "inset 2px 2px 5px rgba(150, 152, 168, 0.55), inset -2px -2px 4px rgba(255, 255, 255, 0.9), inset 0 0 0 1px rgba(40, 48, 72, 0.05)"
+      neumorphic-led-lip: "rgba(255, 255, 255, 0.7)"
+
+      # Convex (raised) shadows — for cards, buttons
+      neumorphic-convex-shadow-xs: "2px 2px 5px #b8b9be, -2px -2px 5px #ffffff, inset 1px 1px 0 rgba(255, 255, 255, 0.85), inset -1px -1px 0 rgba(140, 143, 160, 0.22)"
+      neumorphic-convex-shadow-sm: "4px 4px 9px #b8b9be, -4px -4px 9px #ffffff, inset 1px 1px 0 rgba(255, 255, 255, 0.85), inset -1px -1px 0 rgba(140, 143, 160, 0.22)"
+      neumorphic-convex-shadow-md: "8px 8px 18px #b8b9be, -8px -8px 18px #ffffff, inset 1px 1px 0 rgba(255, 255, 255, 0.85), inset -1px -1px 0 rgba(140, 143, 160, 0.22)"
+      neumorphic-convex-shadow-lg: "12px 12px 26px #b8b9be, -12px -12px 26px #ffffff, inset 1px 1px 0 rgba(255, 255, 255, 0.85), inset -1px -1px 0 rgba(140, 143, 160, 0.22)"
+      neumorphic-convex-shadow-xl: "16px 16px 34px #b8b9be, -16px -16px 34px #ffffff, inset 1px 1px 0 rgba(255, 255, 255, 0.85), inset -1px -1px 0 rgba(140, 143, 160, 0.22)"
+
+      # Concave (inset) shadows — for inputs, pressed states
+      neumorphic-concave-shadow-xs: "inset 2px 2px 3px #b8b9be, inset -2px -2px 3px #ffffff, inset 1px 1px 1px rgba(0, 0, 0, 0.10), 1px 1px 0 rgba(255, 255, 255, 0.75)"
+      neumorphic-concave-shadow-sm: "inset 3px 3px 6px #b8b9be, inset -3px -3px 6px #ffffff, inset 1px 1px 1px rgba(0, 0, 0, 0.10), 1px 1px 0 rgba(255, 255, 255, 0.75)"
+      neumorphic-concave-shadow-md: "inset 5px 5px 10px #b8b9be, inset -5px -5px 10px #ffffff, inset 1px 1px 1px rgba(0, 0, 0, 0.10), 1px 1px 0 rgba(255, 255, 255, 0.75)"
+      neumorphic-concave-shadow-lg: "inset 7px 7px 14px #b8b9be, inset -7px -7px 14px #ffffff, inset 1px 1px 1px rgba(0, 0, 0, 0.10), 1px 1px 0 rgba(255, 255, 255, 0.75)"
+
+      # Interactive states
+      neumorphic-hover-shadow: "11px 11px 24px #b8b9be, -11px -11px 24px #ffffff, inset 1px 1px 0 rgba(255, 255, 255, 0.85), inset -1px -1px 0 rgba(140, 143, 160, 0.22)"
+      neumorphic-active-shadow: "inset 5px 5px 10px #b8b9be, inset -5px -5px 10px #ffffff, inset 1px 1px 1px rgba(0, 0, 0, 0.10), 1px 1px 0 rgba(255, 255, 255, 0.75)"
+
+      # Flat shadow (very subtle)
+      neumorphic-flat-shadow: "0 0.125rem 0.25rem rgba(31, 45, 61, 0.08)"
+
+      # Unsuffixed aliases (used by card-mod/button-card styles)
+      neumorphic-convex-shadow: "var(--neumorphic-convex-shadow-sm)"
+      neumorphic-concave-shadow: "var(--neumorphic-concave-shadow-sm)"
+
+
+    # =========================================================================
+    # DARK MODE
+    # =========================================================================
+    dark:
+      # -----------------------------------------------------------------------
+      # TYPOGRAPHY
+      # -----------------------------------------------------------------------
+      primary-font-family: "'Nunito Sans Local', 'Nunito Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif"
+      paper-font-common-base_-_font-family: "'Nunito Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+
+      # -----------------------------------------------------------------------
+      # PRIMARY & ACCENT
+      # -----------------------------------------------------------------------
+      primary-color: "#6B9BD2"
+      dark-primary-color: "#5585BC"
+      darker-primary-color: "#3E6A9A"
+      light-primary-color: "#8BB5E8"
+      accent-color: "#FFB74D"
+      divider-color: "rgba(232, 233, 235, 0.12)"
+      outline-color: "rgba(232, 233, 235, 0.12)"
+      outline-hover-color: "rgba(232, 233, 235, 0.24)"
+      shadow-color: "rgba(0, 0, 0, 0.48)"
+
+      # -----------------------------------------------------------------------
+      # TEXT COLORS
+      # -----------------------------------------------------------------------
+      primary-text-color: "#e8e9eb"
+      secondary-text-color: "#b4b8bf"
+      text-primary-color: "#2a2c30"
+      text-light-primary-color: "#e8e9eb"
+      disabled-text-color: "#60646c"
+
+      # -----------------------------------------------------------------------
+      # RGB VALUES
+      # -----------------------------------------------------------------------
+      rgb-primary-color: "107, 155, 210"
+      rgb-accent-color: "255, 183, 77"
+      rgb-primary-text-color: "232, 233, 235"
+      rgb-secondary-text-color: "180, 184, 191"
+      rgb-text-primary-color: "42, 44, 48"
+      rgb-card-background-color: "42, 44, 48"
+      rgb-warning-color: "251, 177, 64"
+      rgb-error-color: "255, 107, 107"
+      rgb-success-color: "66, 186, 150"
+      rgb-info-color: "107, 155, 210"
+
+      # -----------------------------------------------------------------------
+      # BACKGROUNDS
+      # -----------------------------------------------------------------------
+      primary-background-color: "#2a2c30"
+      secondary-background-color: "#33363b"
+      card-background-color: "#2a2c30"
+      clear-background-color: "#2a2c30"
+
+      # -----------------------------------------------------------------------
+      # STATUS COLORS
+      # -----------------------------------------------------------------------
+      error-color: "#FF6B6B"
+      warning-color: "#FBB140"
+      success-color: "#42BA96"
+      info-color: "#6B9BD2"
+
+      # -----------------------------------------------------------------------
+      # SCROLLBAR
+      # -----------------------------------------------------------------------
+      scrollbar-thumb-color: "rgba(232, 233, 235, 0.2)"
+
+      # -----------------------------------------------------------------------
+      # STATE ICONS
+      # -----------------------------------------------------------------------
+      state-icon-color: "#b4b8bf"
+      state-icon-active-color: "#6B9BD2"
+      state-icon-unavailable-color: "#60646c"
+      state-on-color: "#42BA96"
+      state-off-color: "#60646c"
+
+      # -----------------------------------------------------------------------
+      # DISABLED COLOR
+      # -----------------------------------------------------------------------
+      disabled-color: "#464646"
+
+      # -----------------------------------------------------------------------
+      # HEADER
+      # -----------------------------------------------------------------------
+      app-header-background-color: "#2a2c30"
+      app-header-text-color: "#e8e9eb"
+      app-header-border-bottom: "none"
+      app-header-edit-background-color: "#33363b"
+      app-header-edit-text-color: "#e8e9eb"
+      app-theme-color: "#2a2c30"
+
+      # -----------------------------------------------------------------------
+      # SIDEBAR
+      # -----------------------------------------------------------------------
+      sidebar-background-color: "#2a2c30"
+      sidebar-text-color: "#e8e9eb"
+      sidebar-icon-color: "rgba(232, 233, 235, 0.6)"
+      sidebar-selected-background-color: "#33363b"
+      sidebar-selected-text-color: "var(--primary-color)"
+      sidebar-selected-icon-color: "var(--primary-color)"
+
+      # -----------------------------------------------------------------------
+      # CARDS (Neumorphic Dark)
+      # -----------------------------------------------------------------------
+      ha-card-background: "#2a2c30"
+      ha-card-border-radius: "14px"
+      ha-card-border-width: "0px"
+      ha-card-border-color: "transparent"
+      ha-card-box-shadow: "8px 8px 18px #1c1d20, -8px -8px 18px #393c42, inset 1px 1px 0 rgba(255, 255, 255, 0.07), inset -1px -1px 0 rgba(0, 0, 0, 0.45)"
+
+      # -----------------------------------------------------------------------
+      # SWITCHES & TOGGLES
+      # -----------------------------------------------------------------------
+      switch-unchecked-button-color: "#999999"
+      switch-unchecked-track-color: "#60646c"
+
+      # -----------------------------------------------------------------------
+      # LABELS & BADGES
+      # -----------------------------------------------------------------------
+      label-badge-background-color: "#2a2c30"
+      label-badge-text-color: "rgba(232, 233, 235, 0.8)"
+
+      # -----------------------------------------------------------------------
+      # INPUT FIELDS (Dark)
+      # -----------------------------------------------------------------------
+      input-idle-line-color: "rgba(255, 255, 255, 0.42)"
+      input-hover-line-color: "rgba(255, 255, 255, 0.87)"
+      input-disabled-line-color: "rgba(255, 255, 255, 0.06)"
+      input-outlined-idle-border-color: "rgba(255, 255, 255, 0.38)"
+      input-outlined-hover-border-color: "rgba(255, 255, 255, 0.87)"
+      input-outlined-disabled-border-color: "rgba(255, 255, 255, 0.06)"
+      input-fill-color: "rgba(255, 255, 255, 0.05)"
+      input-disabled-fill-color: "rgba(255, 255, 255, 0.02)"
+      input-ink-color: "rgba(255, 255, 255, 0.87)"
+      input-label-ink-color: "rgba(255, 255, 255, 0.6)"
+      input-disabled-ink-color: "rgba(255, 255, 255, 0.37)"
+      input-dropdown-icon-color: "rgba(255, 255, 255, 0.54)"
+
+      # -----------------------------------------------------------------------
+      # TABLES
+      # -----------------------------------------------------------------------
+      table-row-background-color: "#2a2c30"
+      table-row-alternative-background-color: "#33363b"
+      data-table-background-color: "#2a2c30"
+
+      # -----------------------------------------------------------------------
+      # MARKDOWN
+      # -----------------------------------------------------------------------
+      markdown-code-background-color: "#33363b"
+
+      # -----------------------------------------------------------------------
+      # MDC OVERRIDES
+      # -----------------------------------------------------------------------
+      mdc-ripple-color: "#aaaaaa"
+      mdc-linear-progress-buffer-color: "rgba(255, 255, 255, 0.1)"
+      mdc-checkbox-unchecked-color: "rgba(232, 233, 235, 0.54)"
+      mdc-radio-unchecked-color: "rgba(232, 233, 235, 0.54)"
+      mdc-button-raised-box-shadow: "3px 3px 6px #1c1d20, -3px -3px 6px #393c42"
+
+      # HA Assist Chips
+      ha-assist-chip-filled-container-color: "rgba(232, 233, 235, 0.15)"
+      ha-assist-chip-active-container-color: "rgba(107, 155, 210, 0.15)"
+      chip-background-color: "rgba(232, 233, 235, 0.15)"
+      chip-text-color: "#e8e9eb"
+      chip-icon-color: "#b4b8bf"
+      chip-box-shadow: "3px 3px 6px #1c1d20, -3px -3px 6px #393c42"
+
+      # HA Buttons
+      ha-button-primary-light-color: "#4082a040"
+      ha-button-warning-light-color: "#917b54c1"
+      ha-button-neutral-color: "#d9dae0"
+      ha-button-neutral-light-color: "#6a7081"
+
+      # -----------------------------------------------------------------------
+      # DIALOGS & MODALS
+      # -----------------------------------------------------------------------
+      dialog-backdrop-filter: "blur(10px)"
+      mdc-dialog-scrim-color: "rgba(17, 18, 20, 0.6)"
+
+      # -----------------------------------------------------------------------
+      # NOTIFICATIONS & TOASTS
+      # -----------------------------------------------------------------------
+      paper-toast-background-color: "#3a3d43"
+      paper-toast-color: "#e8e9eb"
+
+      # -----------------------------------------------------------------------
+      # BAR SHADOW
+      # -----------------------------------------------------------------------
+      bar-box-shadow: "0 2px 12px var(--shadow-color)"
+
+      # -----------------------------------------------------------------------
+      # MAP (Dark tiles inversion)
+      # -----------------------------------------------------------------------
+      map-filter: "invert(0.9) hue-rotate(170deg) brightness(1.5) contrast(1.2) saturate(0.3)"
+
+      # -----------------------------------------------------------------------
+      # ENERGY (dark adjustments)
+      # -----------------------------------------------------------------------
+      energy-grid-return-color: "#a280db"
+
+      # -----------------------------------------------------------------------
+      # CODE EDITOR (Full Dark CodeMirror)
+      # -----------------------------------------------------------------------
+      code-editor-background-color: "#33363b"
+      codemirror-keyword: "#c792ea"
+      codemirror-operator: "#89ddff"
+      codemirror-variable: "#f07178"
+      codemirror-variable-2: "#eeffff"
+      codemirror-variable-3: "#decb6b"
+      codemirror-builtin: "#ffcb6b"
+      codemirror-atom: "#f78c6c"
+      codemirror-number: "#ff5370"
+      codemirror-def: "#82aaff"
+      codemirror-string: "#c3e88d"
+      codemirror-string-2: "#f07178"
+      codemirror-comment: "#60646c"
+      codemirror-tag: "#ff5370"
+      codemirror-meta: "#ffcb6b"
+      codemirror-attribute: "#c792ea"
+      codemirror-property: "#c792ea"
+      codemirror-qualifier: "#decb6b"
+      codemirror-type: "#decb6b"
+
+      # -----------------------------------------------------------------------
+      # PAPER ELEMENTS (Legacy)
+      # -----------------------------------------------------------------------
+      paper-item-icon-color: "#b4b8bf"
+      paper-item-icon-active-color: "#6B9BD2"
+
+      # -----------------------------------------------------------------------
+      # LAYOUT & SPACING
+      # -----------------------------------------------------------------------
+      masonry-view-card-margin: "8px"
+      grid-card-gap: "16px"
+      stack-card-margin: "8px"
+      horizontal-stack-card-margin: "0 8px"
+      vertical-stack-card-margin: "8px 0"
+
+      # -----------------------------------------------------------------------
+      # NEUMORPHIC CUSTOM VARIABLES (Dark · graphite)
+      # -----------------------------------------------------------------------
+      neumorphic-base: "#2a2c30"
+      neumorphic-base-rgb: "42, 44, 48"
+      neumorphic-surface: "#2a2c30"
+      neumorphic-surface-alt: "#33363b"
+      neumorphic-shadow-light: "#393c42"
+      neumorphic-shadow-dark: "#1c1d20"
+      neumorphic-glass-surface: "rgba(42, 44, 48, 0.74)"
+      neumorphic-glass-surface-strong: "rgba(51, 54, 59, 0.84)"
+      neumorphic-glass-border: "transparent"
+      neumorphic-glass-highlight: "rgba(255, 255, 255, 0.16)"
+      neumorphic-card-sheen: "rgba(255, 255, 255, 0.05)"
+      neumorphic-led-off: "#1f2124"
+      neumorphic-led-on: "#3ee08a"
+      neumorphic-bg-pattern: "radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.55) 0 1px, rgba(255, 255, 255, 0.06) 1.4px, transparent 1.6px)"
+      neumorphic-led-warn: "#f5b041"
+      neumorphic-led-alarm: "#f87171"
+      neumorphic-lcd-bg: "rgba(0, 0, 0, 0.28)"
+      neumorphic-lcd-shadow: "inset 2px 2px 5px rgba(0, 0, 0, 0.55), inset -1px -1px 2px rgba(255, 255, 255, 0.05), inset 0 0 0 1px rgba(255, 255, 255, 0.03)"
+      an-glyph-on-dark: "1"
+      neumorphic-led-lip: "rgba(255, 255, 255, 0.06)"
+
+      # Convex (raised) shadows
+      neumorphic-convex-shadow-xs: "2px 2px 5px #1c1d20, -2px -2px 5px #393c42, inset 1px 1px 0 rgba(255, 255, 255, 0.07), inset -1px -1px 0 rgba(0, 0, 0, 0.45)"
+      neumorphic-convex-shadow-sm: "4px 4px 9px #1c1d20, -4px -4px 9px #393c42, inset 1px 1px 0 rgba(255, 255, 255, 0.07), inset -1px -1px 0 rgba(0, 0, 0, 0.45)"
+      neumorphic-convex-shadow-md: "8px 8px 18px #1c1d20, -8px -8px 18px #393c42, inset 1px 1px 0 rgba(255, 255, 255, 0.07), inset -1px -1px 0 rgba(0, 0, 0, 0.45)"
+      neumorphic-convex-shadow-lg: "12px 12px 26px #1c1d20, -12px -12px 26px #393c42, inset 1px 1px 0 rgba(255, 255, 255, 0.07), inset -1px -1px 0 rgba(0, 0, 0, 0.45)"
+      neumorphic-convex-shadow-xl: "16px 16px 34px #1c1d20, -16px -16px 34px #393c42, inset 1px 1px 0 rgba(255, 255, 255, 0.07), inset -1px -1px 0 rgba(0, 0, 0, 0.45)"
+
+      # Concave (inset) shadows
+      neumorphic-concave-shadow-xs: "inset 2px 2px 3px #1c1d20, inset -2px -2px 3px #393c42, inset 1px 1px 1px rgba(0, 0, 0, 0.10), 1px 1px 0 rgba(255, 255, 255, 0.05)"
+      neumorphic-concave-shadow-sm: "inset 3px 3px 6px #1c1d20, inset -3px -3px 6px #393c42, inset 1px 1px 1px rgba(0, 0, 0, 0.10), 1px 1px 0 rgba(255, 255, 255, 0.05)"
+      neumorphic-concave-shadow-md: "inset 5px 5px 10px #1c1d20, inset -5px -5px 10px #393c42, inset 1px 1px 1px rgba(0, 0, 0, 0.10), 1px 1px 0 rgba(255, 255, 255, 0.05)"
+      neumorphic-concave-shadow-lg: "inset 7px 7px 14px #1c1d20, inset -7px -7px 14px #393c42, inset 1px 1px 1px rgba(0, 0, 0, 0.10), 1px 1px 0 rgba(255, 255, 255, 0.05)"
+
+      # Interactive states
+      neumorphic-hover-shadow: "11px 11px 24px #1c1d20, -11px -11px 24px #393c42, inset 1px 1px 0 rgba(255, 255, 255, 0.07), inset -1px -1px 0 rgba(0, 0, 0, 0.45)"
+      neumorphic-active-shadow: "inset 5px 5px 10px #1c1d20, inset -5px -5px 10px #393c42, inset 1px 1px 1px rgba(0, 0, 0, 0.10), 1px 1px 0 rgba(255, 255, 255, 0.05)"
+
+      # Flat shadow
+      neumorphic-flat-shadow: "0 0.125rem 0.25rem rgba(0, 0, 0, 0.2)"
+
+      # Unsuffixed aliases (used by card-mod/button-card styles)
+      neumorphic-convex-shadow: "var(--neumorphic-convex-shadow-sm)"
+      neumorphic-concave-shadow: "var(--neumorphic-concave-shadow-sm)"
+  # ===========================================================================
+  # ALEXANDER UIX LAYER — global shell, cards, controls and dialogs
+  # ===========================================================================
+  uix-theme: "Alexander Neumorphism"
+  card-mod-theme: "Alexander Neumorphism"
+
+  # Subtle cold-neon mist shared by cards and controls.
+  # RGB triplets are kept as tokens so opacity stays intentionally restrained.
+  neumorphic-neon-blue-rgb: "88, 175, 255"
+  neumorphic-neon-violet-rgb: "145, 105, 255"
+  neumorphic-neon-cyan-rgb: "83, 228, 255"
+  # marble/smoke texture retired 2026-11-04 (looked different on every card)
+  neumorphic-smoke-image: "none"
+
+  # Modern HA typography and component aliases
+  ha-font-family-body: var(--primary-font-family)
+  ha-font-family-heading: var(--primary-font-family)
+  ha-font-family-code: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace"
+  mdc-typography-font-family: var(--primary-font-family)
+  ha-card-features-border-radius: 12px
+  ha-card-border-radius: 14px
+  ha-card-border-width: 0px
+  lovelace-background: var(--primary-background-color)
+  paper-dialog-background-color: var(--neumorphic-surface)
+  ha-dialog-surface-background: var(--neumorphic-surface)
+  ha-dialog-surface-box-shadow: var(--neumorphic-convex-shadow-lg)
+  dialog-box-shadow: var(--neumorphic-convex-shadow-lg)
+  ha-dialog-border-radius: 18px
+  ha-button-border-radius: 12px
+  ha-button-height: 42px
+  ha-color-form-background: var(--neumorphic-surface-alt)
+  ha-color-form-background-hover: var(--neumorphic-surface-alt)
+  ha-color-form-background-disabled: var(--neumorphic-surface-alt)
+  wa-border-style: none
+  wa-border-radius-s: 10px
+  wa-border-radius-m: 14px
+  wa-shadow-s: var(--neumorphic-convex-shadow-xs)
+  wa-shadow-m: var(--neumorphic-convex-shadow-sm)
+
+  uix-drawer: |
+    .mdc-drawer {
+      background: var(--neumorphic-surface) !important;
+      border: 0 !important;
+      box-shadow: var(--neumorphic-convex-shadow-sm) !important;
+      font-family: var(--primary-font-family) !important;
+    }
+
+  uix-sidebar-yaml: |
+    .: |
+      :host {
+        background: var(--neumorphic-surface) !important;
+        font-family: var(--primary-font-family) !important;
+      }
+      ha-md-list-item {
+        margin: 3px 8px;
+        border-radius: 11px !important;
+        transition: color .18s ease, background .18s ease, box-shadow .18s ease;
+      }
+      ha-md-list-item.selected::before {
+        border-radius: 11px !important;
+        background: var(--neumorphic-surface-alt) !important;
+        box-shadow: var(--neumorphic-concave-shadow-sm) !important;
+      }
+      ha-md-list-item:not(.selected):hover::before {
+        border-radius: 11px !important;
+        background: color-mix(in srgb, var(--primary-color) 8%, transparent) !important;
+      }
+
+  uix-root-yaml: |
+    .: |
+      @font-face {
+        font-family: "Nunito Sans Local";
+        src: url("/local/alexander-neumorphism/nunito-sans-variable.ttf") format("truetype");
+        font-style: normal;
+        font-weight: 200 1000;
+        font-display: swap;
+      }
+      :host {
+        --mdc-typography-font-family: var(--primary-font-family);
+      }
+      /* Console faceplate: fine speaker-grille perforation behind the cards */
+      hui-view-background {
+        background: var(--neumorphic-bg-pattern) 0 0 / 14px 14px, var(--primary-background-color) !important;
+      }
+      .header,
+      .toolbar,
+      [main-title],
+      ha-menu-button,
+      ha-button-menu,
+      .action-items,
+      ha-dialog,
+      ha-md-dialog {
+        font-family: var(--primary-font-family) !important;
+      }
+      ha-menu-button,
+      ha-button-menu,
+      ha-icon-button,
+      ha-back-button {
+        border-radius: 50%;
+      }
+    ha-button $: |
+      button,
+      .mdc-button {
+        border-radius: 12px !important;
+        background:
+          linear-gradient(180deg, var(--neumorphic-card-sheen) 0%, transparent 60%),
+          var(--neumorphic-glass-surface-strong) !important;
+        border: 1px solid var(--neumorphic-glass-border) !important;
+        -webkit-backdrop-filter: blur(8px) saturate(1.08);
+        backdrop-filter: blur(8px) saturate(1.08);
+        box-shadow: var(--neumorphic-convex-shadow-sm) !important;
+        transition: transform .12s ease, box-shadow .12s ease !important;
+      }
+      button:active,
+      .mdc-button:active {
+        transform: translateY(1px);
+        box-shadow: var(--neumorphic-active-shadow) !important;
+      }
+    ha-icon-button $: |
+      button {
+        border-radius: 50% !important;
+        background:
+          radial-gradient(circle at 28% 18%, rgba(var(--neumorphic-neon-cyan-rgb), .12), transparent 48%),
+          radial-gradient(circle at 80% 85%, rgba(var(--neumorphic-neon-violet-rgb), .09), transparent 52%),
+          var(--neumorphic-glass-surface);
+        border: 1px solid var(--neumorphic-glass-border) !important;
+        -webkit-backdrop-filter: blur(7px) saturate(1.08);
+        backdrop-filter: blur(7px) saturate(1.08);
+        box-shadow:
+          inset 0 1px 0 var(--neumorphic-glass-highlight),
+          inset 0 0 10px rgba(var(--neumorphic-neon-blue-rgb), .025);
+        transition: box-shadow .12s ease, transform .12s ease !important;
+      }
+      button:active {
+        transform: scale(.96);
+        box-shadow: var(--neumorphic-concave-shadow-xs) !important;
+      }
+    ha-textfield $: |
+      .mdc-text-field {
+        border-radius: 11px !important;
+        background: var(--neumorphic-surface-alt) !important;
+        box-shadow: var(--neumorphic-concave-shadow-sm) !important;
+      }
+    ha-select $: |
+      .mdc-select__anchor {
+        border-radius: 11px !important;
+        background: var(--neumorphic-surface-alt) !important;
+        box-shadow: var(--neumorphic-concave-shadow-sm) !important;
+      }
+
+  uix-top-app-bar-fixed: |
+    :host {
+      background: var(--neumorphic-surface) !important;
+      box-shadow: 0 3px 10px var(--shadow-color) !important;
+      font-family: var(--primary-font-family) !important;
+    }
+
+
+  uix-grid-section: |
+    :host {
+      --grid-card-gap: 16px;
+    }
+
+  uix-card-yaml: |
+    .: |
+      :host,
+      ha-card {
+        font-family: var(--primary-font-family) !important;
+      }
+      ha-card {
+        overflow: hidden;
+        /* modern frosted glass: same look on every card, no random texture crop */
+        background:
+          linear-gradient(180deg, var(--neumorphic-card-sheen) 0%, transparent 46%),
+          var(--neumorphic-glass-surface);
+        border: 1px solid var(--neumorphic-glass-border) !important;
+        border-radius: 14px !important;
+        -webkit-backdrop-filter: blur(10px) saturate(1.1);
+        backdrop-filter: blur(10px) saturate(1.1);
+        box-shadow: var(--neumorphic-convex-shadow-md);
+        /* numbers do not jump when values update */
+        font-variant-numeric: tabular-nums;
+        transition:
+          box-shadow .28s cubic-bezier(.2, .8, .2, 1),
+          transform .2s cubic-bezier(.2, .8, .2, 1),
+          background .35s ease;
+      }
+      /* CONSOLE: tiles stay raised; the state is shown by the LED and the icon key */
+      /* Status LED in the top-right corner of every tile */
+      :host(hui-tile-card) ha-card {
+        position: relative;
+      }
+      /* dark mode: the lit key shows its glyph in the lamp colour (plugin paints it near-black) */
+      @container style(--an-glyph-on-dark: 1) {
+        ha-tile-icon ha-state-icon[style*="color: "] {
+          color: var(--tile-color) !important;
+        }
+      }
+      /* icon = toggle key: ON is latched (pressed in) */
+      ha-card.active ha-tile-icon {
+        --an-well-shadow: var(--neumorphic-concave-shadow-sm);
+        --an-well-bg: var(--neumorphic-surface-alt);
+      }
+      :host(hui-tile-card) ha-card::after {
+        content: "";
+        position: absolute;
+        top: 9px;
+        right: 9px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--neumorphic-led-off);
+        box-shadow: inset 1px 1px 2px rgba(0, 0, 0, .22), 1px 1px 0 var(--neumorphic-led-lip);
+        transition: background .3s ease, box-shadow .3s ease;
+        pointer-events: none;
+        z-index: 2;
+      }
+      /* people / status tiles (icon with a badge) are not switches: no LED */
+      :host(hui-tile-card) ha-card:has(ha-tile-badge)::after {
+        display: none;
+      }
+      /* LED language: amber blinking = device unavailable */
+      @keyframes an-led-blink { 0%, 100% { opacity: 1; } 50% { opacity: .25; } }
+      :host(hui-tile-card) ha-card:has(ha-tile-badge[style*="orange"])::after {
+        display: block;
+        background: var(--neumorphic-led-warn);
+        box-shadow: 0 0 6px var(--neumorphic-led-warn), 0 0 14px color-mix(in srgb, var(--neumorphic-led-warn) 55%, transparent);
+        animation: an-led-blink 1.6s ease-in-out infinite;
+      }
+      /* LED language: red = alarm / problem / leak / smoke */
+      :host(hui-tile-card) ha-card.active:is([style*="red-color"], [style*="problem"], [style*="moisture"], [style*="smoke"], [style*="gas"], [style*="safety"], [style*="carbon"], [style*="triggered"], [style*="tamper"])::after {
+        background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, .8) 0 18%, transparent 45%), var(--neumorphic-led-alarm) !important;
+        box-shadow: 0 0 6px var(--neumorphic-led-alarm), 0 0 16px color-mix(in srgb, var(--neumorphic-led-alarm) 60%, transparent) !important;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        :host(hui-tile-card) ha-card::after { animation: none !important; }
+      }
+      :host(hui-tile-card) ha-card.active::after {
+        background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, .85) 0 18%, transparent 45%), var(--neumorphic-led-on);
+        box-shadow: 0 0 6px var(--neumorphic-led-on), 0 0 16px color-mix(in srgb, var(--neumorphic-led-on) 60%, transparent);
+      }
+      /* Press feedback: card sinks a little (tiles without sliders, buttons) */
+      :host(hui-tile-card) ha-card:not(:has(hui-card-features)):active,
+      :host(hui-button-card) ha-card:active,
+      :host(button-card) ha-card:active {
+        transform: scale(.985);
+        box-shadow: var(--neumorphic-convex-shadow-sm);
+        transition-duration: .1s;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        ha-card { transition: none !important; }
+      }
+      @media (hover: hover) and (pointer: fine) {
+        ha-card:hover {
+          box-shadow: var(--neumorphic-hover-shadow);
+          transform: translateY(-1px);
+        }
+      }
+      :host(hui-heading-card) ha-card,
+      :host(mushroom-title-card) ha-card,
+      ha-card.text-only {
+        background: transparent !important;
+        box-shadow: none !important;
+        overflow: visible;
+      }
+      :host(mushroom-chips-card) ha-card {
+        background: transparent !important;
+        box-shadow: none !important;
+      }
+      /* Keep media, camera and picture cards visually intact. */
+      :host(hui-picture-card) ha-card,
+      :host(hui-picture-entity-card) ha-card,
+      :host(hui-picture-glance-card) ha-card {
+        overflow: hidden;
+      }
+      /* Modern Tile/Mushroom typography and control tokens. */
+      :host {
+        --ha-tile-info-primary-font-size: 15px;
+        --ha-tile-info-secondary-font-size: 13px;
+        /* clearer hierarchy: name firm, state quieter */
+        --ha-tile-info-primary-font-weight: 650;
+        --ha-tile-info-primary-letter-spacing: -0.01em;
+        --ha-tile-info-secondary-color: var(--secondary-text-color);
+        /* springy switches and toggles inside cards */
+        --wa-transition-normal: 260ms;
+        --wa-transition-easing: cubic-bezier(.34, 1.45, .64, 1);
+        --control-slider-background: var(--neumorphic-surface-alt);
+        --control-slider-background-opacity: 1;
+      }
+    hui-card-features $ hui-card-feature $ area-controls-dim $: |
+      ha-control-button {
+        border-radius: 12px;
+        box-shadow: var(--neumorphic-convex-shadow-xs);
+        --control-button-background-opacity: 0;
+        transition: box-shadow .2s cubic-bezier(.2, .8, .2, 1);
+      }
+      ha-control-button:not([style*="-off-color"]):not([style*="unavailable"]):not([style*="closed"]) {
+        box-shadow: var(--neumorphic-concave-shadow-sm);
+        --control-button-background-opacity: .14;
+      }
+    hui-card-features $ hui-card-feature $ hui-area-controls-card-feature $: |
+      ha-control-button {
+        border-radius: 12px;
+        box-shadow: var(--neumorphic-convex-shadow-xs);
+        --control-button-background-opacity: 0;
+        transition: box-shadow .2s cubic-bezier(.2, .8, .2, 1);
+      }
+      ha-control-button:not([style*="-off-color"]):not([style*="unavailable"]):not([style*="closed"]) {
+        box-shadow: var(--neumorphic-concave-shadow-sm);
+        --control-button-background-opacity: .14;
+      }
+    ha-tile-icon $: |
+      .container {
+        /* OFF: raised key */
+        box-shadow: var(--an-well-shadow, var(--neumorphic-convex-shadow-xs)) !important;
+        background: var(--an-well-bg, var(--neumorphic-surface)) !important;
+        transition: box-shadow .2s cubic-bezier(.2, .8, .2, 1), background .2s ease !important;
+      }
+    hui-tile-card $ ha-tile-container $: |
+      .container {
+        border-radius: 12px !important;
+      }
+      .content {
+        border-radius: 12px !important;
+      }
+    hui-card-features $ hui-card-feature $ ha-control-slider $: |
+      .slider {
+        border-radius: 999px !important;
+        background: var(--neumorphic-surface-alt) !important;
+        box-shadow: var(--neumorphic-concave-shadow-sm) !important;
+      }
+
+  uix-row: |
+    :host {
+      --wa-transition-normal: 260ms;
+      --wa-transition-easing: cubic-bezier(.34, 1.45, .64, 1);
+      font-variant-numeric: tabular-nums;
+      border-radius: 10px;
+      transition: background .15s ease, box-shadow .15s ease;
+    }
+    :host(:hover) {
+      background: color-mix(in srgb, var(--primary-color) 7%, transparent);
+    }
+
+  uix-assist-chip: |
+    :host {
+      border-radius: 999px !important;
+      background: var(--neumorphic-glass-surface-strong) !important;
+      border: 1px solid var(--neumorphic-glass-border) !important;
+      -webkit-backdrop-filter: blur(8px) saturate(1.08);
+      backdrop-filter: blur(8px) saturate(1.08);
+      box-shadow: var(--neumorphic-convex-shadow-sm) !important;
+    }
+    :host(:active) {
+      box-shadow: var(--neumorphic-concave-shadow-sm) !important;
+    }
+
+  uix-dialog-yaml: |
+    .: |
+      :host {
+        --ha-dialog-border-radius: 18px;
+        --ha-dialog-surface-background: var(--neumorphic-surface);
+      }
+      ha-dialog::part(dialog),
+      ha-md-dialog::part(dialog),
+      ha-adaptive-dialog::part(dialog) {
+        border-radius: 18px !important;
+        background: var(--neumorphic-surface) !important;
+        box-shadow: var(--neumorphic-convex-shadow-lg) !important;
+      }
+
+  uix-more-info: |
+    :host {
+      --more-info-header-background: var(--neumorphic-surface-alt);
+      font-family: var(--primary-font-family) !important;
+    }
+
+  uix-toast: |
+    :host {
+      border-radius: 12px !important;
+      box-shadow: var(--neumorphic-convex-shadow-md) !important;
+    }
+
+  uix-developer-tools: |
+    :host {
+      --code-editor-background-color: var(--neumorphic-surface-alt);
+      font-family: var(--primary-font-family) !important;
+    }
