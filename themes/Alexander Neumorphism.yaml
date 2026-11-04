@@ -1187,9 +1187,15 @@ Alexander Neumorphism:
       }
     ha-tile-icon $: |
       .container {
-        /* OFF: raised key */
-        box-shadow: var(--an-well-shadow, var(--neumorphic-convex-shadow-xs)) !important;
-        background: var(--an-well-bg, var(--neumorphic-surface)) !important;
+        /* OFF: raised key. ON: latched key, backlit with the lamp's own colour;
+           glow size/colour come from Alexander Neumorphism Plus and follow brightness live */
+        box-shadow:
+          var(--an-well-shadow, var(--neumorphic-convex-shadow-xs)),
+          0 0 calc(var(--an-glow-size, 0px) * 2.2) calc(var(--an-glow-size, 0px) * .35) var(--an-glow-color, transparent),
+          inset 0 0 calc(var(--an-glow-size, 0px) * 1.2) var(--an-glow-color, transparent) !important;
+        background:
+          radial-gradient(circle at 50% 55%, var(--an-glow-color, transparent), transparent 72%),
+          var(--an-well-bg, var(--neumorphic-surface)) !important;
         transition: box-shadow .2s cubic-bezier(.2, .8, .2, 1), background .2s ease !important;
       }
     hui-tile-card $ ha-tile-container $: |
